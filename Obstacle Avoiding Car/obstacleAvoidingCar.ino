@@ -1,29 +1,29 @@
-#include <Servo.h>          //standard library for the servo
-#include <NewPing.h>        //for the Ultrasonic sensor function library.
+#include <Servo.h>          //library for the servo
+#include <NewPing.h>        //Ultrasonic sensor function library.
 
 //L298N motor control pins
-const int LeftMotorForward = 6;
-const int LeftMotorBackward = 7;
-const int RightMotorForward = 5;
-const int RightMotorBackward = 4;
+const int LeftMotorFor = 6;
+const int LeftMotorBack = 7;
+const int RightMotorFor = 5;
+const int RightMotorBack = 4;
 
 //sensor pins
 #define trig_pin A1 //analog input 1
 #define echo_pin A2 //analog input 2
 
-#define maximum_distance 200
+#define max_distance 200
 boolean goesForward = false;
 int distance = 100;
 
-NewPing sonar(trig_pin, echo_pin, maximum_distance); //sensor function
+NewPing sonar(trig_pin, echo_pin, max_distance); //sensor function
 Servo servo_motor; 
 
 void setup(){
 
-  pinMode(RightMotorForward, OUTPUT);
-  pinMode(LeftMotorForward, OUTPUT);
-  pinMode(LeftMotorBackward, OUTPUT);
-  pinMode(RightMotorBackward, OUTPUT);
+  pinMode(RightMotorFor, OUTPUT);
+  pinMode(LeftMotorFor, OUTPUT);
+  pinMode(LeftMotorBack, OUTPUT);
+  pinMode(RightMotorBack, OUTPUT);
   
   servo_motor.attach(9); //our servo pin
 
@@ -102,10 +102,10 @@ int readPing(){
 
 void moveStop(){
   
-  digitalWrite(RightMotorForward, LOW);
-  digitalWrite(LeftMotorForward, LOW);
-  digitalWrite(RightMotorBackward, LOW);
-  digitalWrite(LeftMotorBackward, LOW);
+  digitalWrite(RightMotorFor, LOW);
+  digitalWrite(LeftMotorFor, LOW);
+  digitalWrite(RightMotorBack, LOW);
+  digitalWrite(LeftMotorBack, LOW);
 }
 
 void moveForward(){
@@ -114,11 +114,11 @@ void moveForward(){
 
     goesForward=true;
     
-    digitalWrite(LeftMotorForward, HIGH);
-    digitalWrite(RightMotorForward, HIGH);
+    digitalWrite(LeftMotorFor, HIGH);
+    digitalWrite(RightMotorFor, HIGH);
   
-    digitalWrite(LeftMotorBackward, LOW);
-    digitalWrite(RightMotorBackward, LOW); 
+    digitalWrite(LeftMotorBack, LOW);
+    digitalWrite(RightMotorBack, LOW); 
   }
 }
 
@@ -126,29 +126,29 @@ void moveBackward(){
 
   goesForward=false;
 
-  digitalWrite(LeftMotorBackward, HIGH);
-  digitalWrite(RightMotorBackward, HIGH);
+  digitalWrite(LeftMotorBack, HIGH);
+  digitalWrite(RightMotorBack, HIGH);
   
-  digitalWrite(LeftMotorForward, LOW);
-  digitalWrite(RightMotorForward, LOW);
+  digitalWrite(LeftMotorFor, LOW);
+  digitalWrite(RightMotorFor, LOW);
   
 }
 
 void turnRight(){
 
-  digitalWrite(LeftMotorForward, HIGH);
-  digitalWrite(RightMotorBackward, HIGH);
+  digitalWrite(LeftMotorFor, HIGH);
+  digitalWrite(RightMotorBack, HIGH);
   
-  digitalWrite(LeftMotorBackward, LOW);
-  digitalWrite(RightMotorForward, LOW);
+  digitalWrite(LeftMotorBack, LOW);
+  digitalWrite(RightMotorFor, LOW);
   
   delay(500);
   
-  digitalWrite(LeftMotorForward, HIGH);
-  digitalWrite(RightMotorForward, HIGH);
+  digitalWrite(LeftMotorFor, HIGH);
+  digitalWrite(RightMotorFor, HIGH);
   
-  digitalWrite(LeftMotorBackward, LOW);
-  digitalWrite(RightMotorBackward, LOW);
+  digitalWrite(LeftMotorBack, LOW);
+  digitalWrite(RightMotorBack, LOW);
  
   
   
@@ -156,17 +156,17 @@ void turnRight(){
 
 void turnLeft(){
 
-  digitalWrite(LeftMotorBackward, HIGH);
-  digitalWrite(RightMotorForward, HIGH);
+  digitalWrite(LeftMotorBack, HIGH);
+  digitalWrite(RightMotorFor, HIGH);
   
-  digitalWrite(LeftMotorForward, LOW);
-  digitalWrite(RightMotorBackward, LOW);
+  digitalWrite(LeftMotorFor, LOW);
+  digitalWrite(RightMotorBack, LOW);
 
   delay(500);
   
-  digitalWrite(LeftMotorForward, HIGH);
-  digitalWrite(RightMotorForward, HIGH);
+  digitalWrite(LeftMotorFor, HIGH);
+  digitalWrite(RightMotorFor, HIGH);
   
-  digitalWrite(LeftMotorBackward, LOW);
-  digitalWrite(RightMotorBackward, LOW);
+  digitalWrite(LeftMotorBack, LOW);
+  digitalWrite(RightMotorBack, LOW);
 }
