@@ -3,13 +3,12 @@
 1. Name of the Project --> Cricinfo Extracter (Cricinfo 2019 WorldCup Data Extractor)
 
 
-2. Purpose --> The purpose of the project is to extract the information of Worlcup 2019 from Cricinfo snd present that info in the form of excel and pdf scorecards.
+2. Purpose --> The purpose of the project is to extract the information of Worlcup 2019 from Cricinfo and present that info in the form of excel and pdf scorecards.
            --> The real purpose of the project is to learn how to extract the information from a website and get experience with it.
            
-3. Reason --> A very good reason for me to make this project is I enjoyed making it, It was a great fun activity for me.
+3. Reason --> A very good reason for me to make this project is that I enjoyed making it with learning javaScript, It was a great fun activity for me.
 
-
-4.Programming Language --> JavaSript
+4. Programming Language --> javaScript
 
 5. The dependencies used by me while making this project are:-
         i). minimist
